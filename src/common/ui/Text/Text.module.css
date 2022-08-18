@@ -1,0 +1,75 @@
+/*
+  Sizes
+*/
+.BET-size--xs {
+  @apply text-xs;
+}
+.BET-size--sm {
+  @apply text-sm;
+}
+.BET-size--default {
+  @apply text-base;
+}
+.BET-size--leading {
+  @apply text-lg;
+}
+.BET-size--lg {
+  @apply text-xl;
+}
+.BET-size--xl {
+  @apply text-2xl;
+}
+.BET-size--xxl {
+  @apply text-[36px] leading-[44px];
+}
+.BET-size--3xl {
+  @apply text-[48px] leading-[59px];
+}
+
+/*
+  Variants
+  need to be changed to use the ones in figma
+*/
+.BET-variant--default {
+  @apply text-[#FFFFFF];
+}
+.BET-variant--primary {
+  @apply text-[#8E8E8E];
+}
+.BET-variant--accent {
+  @apply text-[#DCFF1C];
+}
+.BET-variant--danger {
+  @apply text-[#FE4949];
+}
+.BET-variant--black {
+  @apply text-[#000000];
+}
+.BET-variant--shaded {
+  @apply text-white/50;
+}
+.BET-variant--30 {
+  @apply text-white/30;
+}
+.BET-size--50 {
+  @apply text-white/50;
+}
+
+/*
+  Spacing
+*/
+.BET-space--tight {
+  @apply tracking-tight;
+}
+.BET-space--default {
+  @apply tracking-normal;
+}
+.BET-space--wide {
+  @apply tracking-wide;
+}
+.BET-space--wider {
+  @apply tracking-wider;
+}
+.BET-space--widest {
+  @apply tracking-widest;
+}
