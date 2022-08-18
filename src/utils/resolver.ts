@@ -2,6 +2,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { z } from 'zod';
 import { intervalToDuration } from 'date-fns';
+import passwordValidator from 'password-validator';
+
+// eslint-disable-next-line new-cap
+const schema = new passwordValidator();
 
 // MAIN PAGE this check if user exist or not
 
@@ -61,9 +65,19 @@ export const signUpResolver = z
       })
       .refine(
         (password) => {
-          const regex =
-            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-          if (regex.test(password)) {
+          schema
+            .is()
+            .has()
+            .digits(1)
+            .has()
+            .symbols()
+            .min(4) // Minimum length 8
+            .has()
+            .lowercase() // Must have lowercase letters
+            .has()
+            .not()
+            .spaces();
+          if (schema.validate(password)) {
             return true;
           }
           return false;
