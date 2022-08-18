@@ -59,9 +59,20 @@ export const signUpResolver = z
       .min(4, {
         message: 'Please enter a password',
       })
-      .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/, {
-        message: 'Password must have one special character, 1 number and letters',
-      }),
+      .refine(
+        (password) => {
+          const regex =
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+          if (regex.test(password)) {
+            return true;
+          }
+          return false;
+        },
+        {
+          message:
+            'Password must contain at least one uppercase, one lowercase, one number and one special character',
+        }
+      ),
     repeatPassword: z
       .string({
         required_error: 'Password is required',
